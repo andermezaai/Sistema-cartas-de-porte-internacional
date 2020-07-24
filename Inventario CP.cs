@@ -127,7 +127,7 @@ namespace Documentos
 
             string pais = comboBox1.Text;
             
-            datos.numero = richTextBox33.Text+"\nCEC:"+richTextBox34.Text;
+            datos.numero = richTextBox33.Text+"\nCEC"+richTextBox34.Text;
             datos.codigo = "000"+numero + " "+comboBox1.Text;
             datos.nomDirRemitente = richTextBox1.Text;
             datos.nomDirDestinatario= richTextBox2.Text;
@@ -891,10 +891,10 @@ namespace Documentos
                     string comando6 = "UPDATE cartas_final SET c13_1='" + c13_1 + "',dian='" + dian + "',c13_2='" + c13_2 + "',c14='" + c14 + "'," +
                         "c15='" + c15 + "',c16='" + c16 + "',c17_1='" + c17_1 + "',c17_2='" + c17_2 + "',c17_3='" + c17_3 + "',c17_4='" + c17_4 + "'," +
                         "c17_5='" + c17_5 + "',c17_6='" + c17_6 + "',c17_7='" + c17_7 + "',c17_8='" + c17_8 + "',c17_9='" + c17_9 + "',c17_10='" + c17_10 + "'" +
-                        ",c17_11='" + c17_11 + "',c17_12='" + c17_12 + "',c18='" + c18 + "',c19='" + c19 + "',c21='" + c21 + "',c22='" + c22 + "'" + 
-                        "WHERE llave=" + id ;
+                        ",c17_11='" + c17_11 + "',c17_12='" + c17_12 + "',c18='" + c18 + "',c19='" + c19 + "',c21='" + c21 + "',c22='" + c22 + "'" +
+                        "WHERE llave=" + id;
                     nueva.comando(comando6);
-                    
+
                 }
                 MessageBox.Show("Se ha guardado exitosamente");
             }

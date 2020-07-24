@@ -128,6 +128,7 @@
             this.dataGridView2.Size = new System.Drawing.Size(1573, 293);
             this.dataGridView2.TabIndex = 73;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // pictureBox1
             // 

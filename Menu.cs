@@ -116,12 +116,12 @@ namespace Documentos
             
 
 
-            string consultar2 = "SELECT cartas_de_porte.codigo_pais AS PAIS, cartas_de_porte.numero_cartaporte AS NUMERO, manifiestos_de_carga.numero_manifiesto_pais AS [NUMERO MANIFIESTO], manifiestos_de_carga.fecha_creacion AS CREADO, manifiestos_de_carga.fecha_modificacion AS [ULTIMA MODIFICACIÓN], Conductores.c13 AS[CONDUCTOR]" +
+            string consultar2 = "SELECT cartas_de_porte.codigo_pais AS PAIS, cartas_de_porte.numero_cartaporte AS CPI, manifiestos_de_carga.numero_manifiesto_pais AS [NUMERO MANIFIESTO], manifiestos_de_carga.fecha_creacion AS CREADO, manifiestos_de_carga.fecha_modificacion AS [ULTIMA MODIFICACIÓN], Conductores.c13 AS[CONDUCTOR]" +
             " FROM cartas_de_porte INNER JOIN(cartas_final INNER JOIN ((manifiestos_de_carga INNER JOIN (Conductores INNER JOIN Conductores_en_manifiesto ON Conductores.c13 = Conductores_en_manifiesto.id_conductor) ON manifiestos_de_carga.llave = Conductores_en_manifiesto.id_manifiestos) INNER JOIN manifiestos_final ON manifiestos_de_carga.llave = manifiestos_final.id_manifiesto) ON cartas_final.llave = manifiestos_final.id_carta_porte) ON cartas_de_porte.llave = cartas_final.id_carta"+
             " WHERE(([Conductores_en_manifiesto].[tipo_conductor] = 'PRINCIPAL')) ORDER BY manifiestos_de_carga.fecha_modificacion DESC";
             DataTable tabla2 = nueva.Consulta(consultar2);
             dataGridView2.DataSource = tabla2;
-            dataGridView2.AutoResizeColumns();
+            dataGridView2.AutoResizeColumns();            
             dataGridView2.Columns[3].Width = 200;
             dataGridView2.Columns[4].Width = 200;
             dataGridView2.Columns[5].Width = 438;//455
@@ -338,6 +338,11 @@ namespace Documentos
                 }
 
             }
+        }
+
+        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

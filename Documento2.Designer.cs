@@ -263,6 +263,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.Color.Red;
             this.label34.Location = new System.Drawing.Point(411, 32);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(211, 25);
