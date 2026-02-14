@@ -3399,21 +3399,6 @@
                       </Border>
                     </Style>
                   </Image>
-                  <Image Name="Image3">
-                    <Source>Embedded</Source>
-                    <Value>Captura</Value>
-                    <Sizing>Fit</Sizing>
-                    <Top>1.07283cm</Top>
-                    <Left>2.44573cm</Left>
-                    <Height>0.97424cm</Height>
-                    <Width>5.35707cm</Width>
-                    <ZIndex>2</ZIndex>
-                    <Style>
-                      <Border>
-                        <Style>None</Style>
-                      </Border>
-                    </Style>
-                  </Image>
                 </ReportItems>
                 <KeepTogether>true</KeepTogether>
                 <Top>25.16514cm</Top>
