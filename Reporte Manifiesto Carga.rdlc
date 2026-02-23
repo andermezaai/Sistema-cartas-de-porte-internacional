@@ -289,7 +289,7 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox75</rd:DefaultName>
-                    <Top>0.50242cm</Top>
+                    <Top>0.5377cm</Top>
                     <Left>15.28513cm</Left>
                     <Height>0.48577cm</Height>
                     <Width>2.5cm</Width>
@@ -336,6 +336,35 @@
                     <Height>0.19445in</Height>
                     <Width>4.13194in</Width>
                     <ZIndex>2</ZIndex>
+                    <Style>
+                      <Border>
+                        <Style>None</Style>
+                      </Border>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                      <PaddingTop>2pt</PaddingTop>
+                      <PaddingBottom>2pt</PaddingBottom>
+                    </Style>
+                  </Textbox>
+                  <Textbox Name="Textbox77">
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>MCI No.</Value>
+                            <Style />
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox61</rd:DefaultName>
+                    <Top>0.52957cm</Top>
+                    <Left>5.40319in</Left>
+                    <Height>0.19445in</Height>
+                    <Width>0.60069in</Width>
+                    <ZIndex>3</ZIndex>
                     <Style>
                       <Border>
                         <Style>None</Style>
@@ -498,7 +527,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>2. Certificado de idoneidad No.</Value>
+                            <Value>2. Permiso Originario No.</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <Color>Blue</Color>
@@ -576,7 +605,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>3. Permiso de Prestación de Servicio No.</Value>
+                            <Value>3. Permiso Originario No.</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
                               <Color>Blue</Color>
@@ -3360,6 +3389,28 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
+                            <Value>El suscrito, al hacerce cargo de las mercancías se obliga a cumplir las disposiciones de las normas que conforman el ordenamiento jurídico de la Comunidad Andina, en particular con la Decisión 837 y su Reglamento, en la presente operación de Transporte Internacional por Carretera.</Value>
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value />
+                            <Style>
+                              <FontSize>8pt</FontSize>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
                             <Value>39. Nombre, Firma y sello del transportista autorizado o su representante</Value>
                             <Style>
                               <FontSize>8pt</FontSize>
@@ -3371,8 +3422,9 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox5</rd:DefaultName>
-                    <Top>2.04707cm</Top>
-                    <Height>0.51181cm</Height>
+                    <Top>0.17055cm</Top>
+                    <Left>0.01758cm</Left>
+                    <Height>2.38833cm</Height>
                     <Width>10.00001cm</Width>
                     <Style>
                       <Border>
@@ -3384,27 +3436,12 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
-                  <Image Name="Image1">
-                    <Source>Embedded</Source>
-                    <Value>ID32</Value>
-                    <Sizing>Fit</Sizing>
-                    <Top>0.02943cm</Top>
-                    <Left>0.03533cm</Left>
-                    <Height>1.60467cm</Height>
-                    <Width>9.94708cm</Width>
-                    <ZIndex>1</ZIndex>
-                    <Style>
-                      <Border>
-                        <Style>None</Style>
-                      </Border>
-                    </Style>
-                  </Image>
                 </ReportItems>
                 <KeepTogether>true</KeepTogether>
                 <Top>25.16514cm</Top>
-                <Left>10.01759cm</Left>
+                <Left>10.00001cm</Left>
                 <Height>3.28753cm</Height>
-                <Width>10.00001cm</Width>
+                <Width>10.01759cm</Width>
                 <ZIndex>35</ZIndex>
                 <Style>
                   <Border>

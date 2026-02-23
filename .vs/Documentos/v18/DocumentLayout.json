@@ -1,0 +1,119 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|c:\\users\\anderson\\desktop\\sistema-cartas-de-porte-internacional-master\\documento2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:documento2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|c:\\users\\anderson\\desktop\\sistema-cartas-de-porte-internacional-master\\reporte manifiesto carga.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:reporte manifiesto carga.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|c:\\users\\anderson\\desktop\\sistema-cartas-de-porte-internacional-master\\documento2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:documento2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\reporte carta de porte.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:reporte carta de porte.rdlc||{46F6D2A1-5E86-4080-A799-01F3D0E23796}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|c:\\users\\anderson\\desktop\\sistema-cartas-de-porte-internacional-master\\datosmanifiesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BA9DD694-5C6B-4C35-80D7-4EC2C78BB056}|Documentos.csproj|solutionrelative:datosmanifiesto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Documento2.cs",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Documento2.cs",
+              "RelativeDocumentMoniker": "Documento2.cs",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Documento2.cs",
+              "RelativeToolTip": "Documento2.cs",
+              "ViewState": "AgIAALkDAAAAAAAAAAASwMUDAABfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T16:05:03.477Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DatosManifiesto.cs",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\DatosManifiesto.cs",
+              "RelativeDocumentMoniker": "DatosManifiesto.cs",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\DatosManifiesto.cs",
+              "RelativeToolTip": "DatosManifiesto.cs",
+              "ViewState": "AgIAACQAAAAAAAAAAAArwCsAAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T16:04:58.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Documento2.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Documento2.cs",
+              "RelativeDocumentMoniker": "Documento2.cs",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Documento2.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Documento2.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T01:49:00.294Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Reporte Carta De Porte.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Reporte Carta De Porte.rdlc",
+              "RelativeDocumentMoniker": "Reporte Carta De Porte.rdlc",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Reporte Carta De Porte.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Reporte Carta De Porte.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2026-02-18T01:45:22.005Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Reporte Manifiesto Carga.rdlc [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Reporte Manifiesto Carga.rdlc",
+              "RelativeDocumentMoniker": "Reporte Manifiesto Carga.rdlc",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Reporte Manifiesto Carga.rdlc [Dise\u00F1o]",
+              "RelativeToolTip": "Reporte Manifiesto Carga.rdlc [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001755|",
+              "WhenOpened": "2026-02-18T01:47:02.099Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\Anderson\\Desktop\\Sistema-cartas-de-porte-internacional-master\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-02-18T01:47:02.174Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

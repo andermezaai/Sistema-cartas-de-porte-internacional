@@ -224,7 +224,7 @@ namespace Documentos
             datos.DOtraTexto = textBox1.Text;
             datos.NumeroIdentificacionContenedores = richTextBox24.Text.Replace("\n", " ");
             datos.NroCartaPorte = richTextBox22.Text;
-            datos.DescripcionMercancias = saltotext(richTextBox21.Text)+"REMITENTE:"+empresaEmisor+"\nDESTINATARIO:"+empresaReceptor+"\nDIAN:"+campoDian+"\n"+campoDae+"\nBODEGA:"+campoBodega;
+            datos.DescripcionMercancias = saltotext(richTextBox21.Text);//+"REMITENTE:"+empresaEmisor+"\nDESTINATARIO:"+empresaReceptor+"\nDIAN:"+campoDian+"\n"+campoDae+"\nBODEGA:"+campoBodega;
             Console.WriteLine(datos.DescripcionMercancias.Split('\r')[0]);
             datos.NumeroPrecintosAduaneros = richTextBox23.Text.Replace("\n", " ");
             datos.CantidadBultos = richTextBox20.Text;
@@ -292,6 +292,11 @@ namespace Documentos
                 }
             }
             
+        }
+
+        private void richTextBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void richTextBox32_Leave(object sender, EventArgs e)
@@ -963,7 +968,7 @@ namespace Documentos
 
                     }
 
-                    DataTable id_minifiestos_carga = nueva.Consulta("Select manifiestos_de_carga.llave from manifiestos_de_carga inner join manifiestos_final on manifiestos_de_carga.llave=manifiestos_final.llave  where manifiestos_final.llave = " + id );
+                    DataTable id_minifiestos_carga = nueva.Consulta("Select manifiestos_final.id_manifiesto from manifiestos_final where manifiestos_final.llave = " + id );
                     string comando5 = "UPDATE manifiestos_de_carga SET fecha_modificacion=NOW(),numero_manifiesto_pais='"+numero+"',c2='" + c2 + "',c3='" + c3 + "',id_vehiculo='" + c6 + "'," +
                         "id_unidad='" + c11 + "' where llave=" + nueva.Quitar_espacios(Convert.ToString(id_minifiestos_carga.Rows[0].ItemArray[0])) + "";
                     nueva.comando(comando5);
@@ -984,7 +989,7 @@ namespace Documentos
                 }
                 else
                 {
-                    DataTable id_minifiestos_carga = nueva.Consulta("Select manifiestos_de_carga.llave from manifiestos_de_carga inner join manifiestos_final on manifiestos_de_carga.llave=manifiestos_final.llave  where manifiestos_final.llave = " + id + "");
+                    DataTable id_minifiestos_carga = nueva.Consulta("Select manifiestos_final.id_manifiesto from manifiestos_final where manifiestos_final.llave = " + id + "");
                     string comando6 = "UPDATE Conductores_en_manifiesto " +
                     "SET id_conductor='" + c13 + "' where id_manifiestos=" + nueva.Quitar_espacios(Convert.ToString(id_minifiestos_carga.Rows[0].ItemArray[0])) + " and tipo_conductor='PRINCIPAL'";
                     nueva.comando(comando6);
