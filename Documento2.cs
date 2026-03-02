@@ -26,7 +26,7 @@ namespace Documentos
         
 
         string c2, c3, c4, c5, c6, c7, c8,
-               c9, c10, c11, c12, c13,
+               c9, c10, c11, c12, c13, c8_1,
                c14, c15, c16,
                c17, c18, c19, c20,
                c21, c22, c23, c24, c25,
@@ -192,7 +192,7 @@ namespace Documentos
 
 
             DatosManifiesto datos = new DatosManifiesto();            
-            datos.CodigoManifiesto = "000"+numero+" "+comboBox1.Text;
+            datos.CodigoManifiesto = numero.ToString().PadLeft(6,'0') +" "+comboBox1.Text;
             datos.NumeroCodigo = numericUpDown1.Value;
             datos.CertificadoIdoneidad = richTextBox1.Text;
             datos.PermisoPrestacion = richTextBox2.Text;
@@ -205,6 +205,7 @@ namespace Documentos
             datos.MarcaUnidadCarga = richTextBox5.Text;
             datos.AnioFabricacionUnidadCarga = richTextBox16.Text;
             datos.ChasisUnidadCarga = richTextBox14.Text;
+            datos.CertificadoHabilitacion2 = richTextBox25.Text;
             datos.NombreConductorPrincipal = richTextBox13.Text;
             datos.DocIdentidadConductorPrincipal = richTextBox12.Text;
             datos.NacionalidadConductorPrincipal = richTextBox11.Text;
@@ -319,7 +320,7 @@ namespace Documentos
         private void richTextBox15_Leave(object sender, EventArgs e)
         {
             Base nueva = new Base();
-            DataTable tabla = nueva.Consulta("Select c9,c10,c12 from Unidades_de_Carga where c11='"+richTextBox15.Text+"'");
+            DataTable tabla = nueva.Consulta("Select c9,c10,c12,c8_1 from Unidades_de_Carga where c11='"+richTextBox15.Text+"'");
             if (tabla.Rows.Count != 0)
             {
                 if (!String.IsNullOrEmpty(Convert.ToString(tabla.Rows[0].ItemArray[0])))
@@ -328,6 +329,8 @@ namespace Documentos
                     richTextBox16.Text = nueva.Quitar_espacios(Convert.ToString(tabla.Rows[0].ItemArray[1]));
                 if (!String.IsNullOrEmpty(Convert.ToString(tabla.Rows[0].ItemArray[2])))
                     richTextBox14.Text = nueva.Quitar_espacios(Convert.ToString(tabla.Rows[0].ItemArray[2]));
+                if (!String.IsNullOrEmpty(Convert.ToString(tabla.Rows[0].ItemArray[3])))
+                    richTextBox25.Text = nueva.Quitar_espacios(Convert.ToString(tabla.Rows[0].ItemArray[3]));
             }
         }
 
@@ -582,6 +585,7 @@ namespace Documentos
                 c10 = "";
             c11 = richTextBox15.Text.ToUpper();
             c12 = richTextBox14.Text.ToUpper();
+            c8_1=richTextBox25.Text.ToUpper();
             c13 = richTextBox13.Text.ToUpper();
             c14 = richTextBox12.Text;
             c15 = richTextBox11.Text.ToUpper();
@@ -722,8 +726,8 @@ namespace Documentos
                 " FROM manifiestos_de_carga INNER JOIN manifiestos_final ON manifiestos_de_carga.llave = manifiestos_final.id_manifiesto" +
                 " WHERE(([manifiestos_final].[llave] = " + id_ref + "))");
 
-                richTextBox1.Text = nueva.Quitar_espacios(consulta_C2_c3.Rows[0].ItemArray[0].ToString());
-                richTextBox2.Text = nueva.Quitar_espacios(consulta_C2_c3.Rows[0].ItemArray[1].ToString());
+                //richTextBox1.Text = nueva.Quitar_espacios(consulta_C2_c3.Rows[0].ItemArray[0].ToString());
+                //richTextBox2.Text = nueva.Quitar_espacios(consulta_C2_c3.Rows[0].ItemArray[1].ToString());
 
                 /////////////////////////////////////////////
                 ///VEHICULO
@@ -749,6 +753,7 @@ namespace Documentos
                 richTextBox5.Text = nueva.Quitar_espacios(c_unidadescarga.Rows[0].ItemArray[1].ToString());
                 richTextBox16.Text = nueva.Quitar_espacios(c_unidadescarga.Rows[0].ItemArray[2].ToString());
                 richTextBox15.Text = nueva.Quitar_espacios(c_unidadescarga.Rows[0].ItemArray[3].ToString());
+                richTextBox25.Text = nueva.Quitar_espacios(c_unidadescarga.Rows[0].ItemArray[4].ToString());
 
                 ///////////////////////////////////////////////
                 ///conductores
@@ -906,12 +911,12 @@ namespace Documentos
                 if (!nueva.Dato_en_consulta(nueva.Quitar_espacios(c11), "Select c11 from Unidades_de_Carga"))
                 {
                     string comando3 = "INSERT INTO Unidades_de_Carga " +
-                    "VALUES('" + c12 + "','" + c9 + "','" + c10 + "','" + c11 + "')";
+                    "VALUES('" + c12 + "','" + c9 + "','" + c10 + "','" + c11 + "','" + c8_1 + "')";
                     nueva.comando(comando3);
                 }
                 else
                 {
-                    string comando = "UPDATE Unidades_de_Carga set c9='" + c9 + "',c10='" + c10 + "',c12='" + c12 + "' Where c11='" + c11 + "'";
+                    string comando = "UPDATE Unidades_de_Carga set c9='" + c9 + "',c10='" + c10 + "',c12='" + c12 + "',c8_1='" + c8_1 + "' Where c11='" + c11 + "'";
                     nueva.comando(comando);
                 }
 
@@ -1013,7 +1018,9 @@ namespace Documentos
                     c37 + "','" + c38 + "','" + c40 + "')";
                     nueva.comando(comando8);
 
-                    id = manifiesto.Rows[manifiesto.Rows.Count - 1].ItemArray[0].ToString();
+                    DataTable manifiestoSolo = nueva.Consulta("Select llave from manifiestos_final");
+
+                    id = manifiestoSolo.Rows[manifiestoSolo.Rows.Count - 1].ItemArray[0].ToString();
                     label34.Text = "EDITANDO MANIFIESTO";
                 }
                 else

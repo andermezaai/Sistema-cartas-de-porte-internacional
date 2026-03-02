@@ -301,9 +301,12 @@ namespace Documentos
             if (pais_carta_manifiesto != "" && numero_carta_manifiesto != "" && numero_manifiesto != "")
             {
                 Base nueva = new Base();
-                string id_del_manifiesto = nueva.Quitar_espacios(nueva.Consulta("SELECT manifiestos_final.llave" +
+                DataTable Manifiestos = nueva.Consulta("SELECT manifiestos_de_carga.llave,manifiestos_final.llave" +
                 " FROM manifiestos_de_carga INNER JOIN(cartas_de_porte INNER JOIN(cartas_final INNER JOIN manifiestos_final ON cartas_final.llave = manifiestos_final.id_carta_porte) ON cartas_de_porte.llave = cartas_final.id_carta) ON manifiestos_de_carga.llave = manifiestos_final.id_manifiesto" +
-                " WHERE(([cartas_de_porte].[codigo_pais] = '" + pais_carta_manifiesto + "') AND([cartas_de_porte].[numero_cartaporte] = " + numero_carta_manifiesto + ") AND([manifiestos_de_carga].[numero_manifiesto_pais] = " + numero_manifiesto + "))").Rows[0].ItemArray[0].ToString());
+                " WHERE(([cartas_de_porte].[codigo_pais] = '" + pais_carta_manifiesto + "') AND([cartas_de_porte].[numero_cartaporte] = " + numero_carta_manifiesto + ") AND([manifiestos_de_carga].[numero_manifiesto_pais] = " + numero_manifiesto + "))");
+                
+                string id_del_manifiesto = nueva.Quitar_espacios(Manifiestos.Rows[0].ItemArray[0].ToString());
+                string id_del_manifiestoFinal = nueva.Quitar_espacios(Manifiestos.Rows[0].ItemArray[1].ToString());
 
                 DialogResult respuesta = new DialogResult();
                 respuesta = MessageBox.Show("¿Seguro que desea eliminar el manifiesto " + numero_manifiesto + " de la carta de porte " + pais_carta_manifiesto + numero_carta_manifiesto, "Eliminar Manifiesto", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -322,7 +325,7 @@ namespace Documentos
                     //////////////////////////////////
                     string comando1 = "DELETE" +
                     " FROM manifiestos_final" +
-                    " where[manifiestos_final].[llave] =" + id_del_manifiesto;
+                    " where[manifiestos_final].[llave] =" + id_del_manifiestoFinal;
                     nueva.comando(comando1);
 
 

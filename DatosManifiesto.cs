@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace Documentos
 {
@@ -21,6 +22,7 @@ namespace Documentos
         public string AnioFabricacionUnidadCarga { get; set; }
         public string PlacaUnidadCarga { get; set; }
         public string ChasisUnidadCarga { get; set; }
+        public string CertificadoHabilitacion2 { get; set; }
         public string NombreConductorPrincipal { get; set; }
         public string DocIdentidadConductorPrincipal { get; set; }
         public string NacionalidadConductorPrincipal { get; set; }

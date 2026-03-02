@@ -45,6 +45,10 @@
           <DataField>CantidadBultos</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="CertificadoHabilitacion2">
+          <DataField>CertificadoHabilitacion2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="CertificadoIdoneidad">
           <DataField>CertificadoIdoneidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -947,7 +951,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=First(Fields!CertificadosHabilitacion.Value, "DataSet1")</Value>
+                            <Value>=First(Fields!CertificadosHabilitacion.Value, "DataSet1") + "  " + First(Fields!CertificadoHabilitacion2.Value,"DataSet1")</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                             </Style>

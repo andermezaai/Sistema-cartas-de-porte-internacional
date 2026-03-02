@@ -482,13 +482,7 @@ C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.ReportViewer.WinForms.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\EnvDTE.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\stdole.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\Microsoft.MSXML.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\de\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\es\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\ander\OneDrive\Desktop\Documentos AM\Profesional\SILOGTER.SA\Documentos\bin\Debug\fr\Microsoft.ReportViewer.Common.resources.dll

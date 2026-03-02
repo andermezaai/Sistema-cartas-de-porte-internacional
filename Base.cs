@@ -228,7 +228,7 @@ namespace Documentos
 
         public string Quitar_espacios(string dato)
         {
-            string nuevo = "";
+            /*string nuevo = "";
             int count = 1;
             foreach(char i in dato)
             {
@@ -238,7 +238,8 @@ namespace Documentos
                 }
                 count++;
             }
-            return nuevo;
+            return nuevo;*/
+            return dato.Trim();
         }
     }
 }

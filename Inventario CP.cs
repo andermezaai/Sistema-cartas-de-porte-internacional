@@ -60,6 +60,11 @@ namespace Documentos
             
         }
 
+        private void richTextBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         string numero_final_para_enviar_al_manifiesto = "";
 
 
@@ -244,7 +249,6 @@ namespace Documentos
             }
             else
             {
-
                 DataTable codigopais = nueva.Consulta("Select cartas_de_porte.codigo_pais from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id + "");
                 if (nueva.Quitar_espacios(Convert.ToString(codigopais.Rows[0].ItemArray[0])) == comboBox1.Text)
                 {
@@ -791,21 +795,21 @@ namespace Documentos
 
             if (!string.IsNullOrEmpty(richTextBox1.Text) && !string.IsNullOrEmpty(richTextBox2.Text) && (comboBox1.Text=="EC" || comboBox1.Text == "CO" || comboBox1.Text == "PE"))
             {
-                if (!nueva.Dato_en_consulta(nueva.Quitar_espacios(c2), "Select c2yc3 from Organizaciones_y_direcciones"))
+                if (!nueva.Dato_en_consulta(c2.Trim(), "Select c2yc3 from Organizaciones_y_direcciones"))
                 {
                     string comando1 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) " +
-                    "VALUES('" + c2 + "')";
+                    "VALUES('" + c2.Trim() + "')";
                     nueva.comando(comando1);
                 }
-                string codigo_emisor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta("Select id_organizacion from Organizaciones_y_direcciones where c2yc3 ='" + c2 + "'").Rows[0].ItemArray[0]));
+                string codigo_emisor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta(@"SELECT Organizaciones_y_direcciones.id_organizacion FROM Organizaciones_y_direcciones WHERE  Replace(c2yc3, Chr (10), ' ') ='" + c2.Trim().Replace('\n',' ') + "'").Rows[0].ItemArray[0]));                
 
-                if (!nueva.Dato_en_consulta(nueva.Quitar_espacios(c3), "Select c2yc3 from Organizaciones_y_direcciones"))
+                if (!nueva.Dato_en_consulta(c3.Trim(), "Select c2yc3 from Organizaciones_y_direcciones"))
                 {
                     string comando2 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) " +
-                    "VALUES('" + c3 + "')";
+                    "VALUES('" + c3.Trim() + "')";
                     nueva.comando(comando2);
                 }
-                string codigo_receptor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta("Select id_organizacion from Organizaciones_y_direcciones where c2yc3 ='" + c3 + "'").Rows[0].ItemArray[0]));
+                string codigo_receptor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta(@"SELECT Organizaciones_y_direcciones.id_organizacion FROM Organizaciones_y_direcciones WHERE  Replace(c2yc3, Chr (10), ' ') ='" + c3.Trim().Replace('\n', ' ') + "'").Rows[0].ItemArray[0]));
 
                 if (id == "-1")
                 {
@@ -883,7 +887,8 @@ namespace Documentos
                     c17_7 + "','" + c17_8 + "','" + c17_9 + "','" + c17_10 + "','" + c17_11 + "','" + c17_12 + "','" + c18 + "','" + c19 + "','" + c21 + "','" + c22 + "','"+dian+"')";
                     nueva.comando(comando6);
 
-                    id = cartas.Rows[cartas.Rows.Count - 1].ItemArray[0].ToString();
+                    DataTable cartasFinal = nueva.Consulta("Select llave from cartas_final");
+                    id = cartasFinal.Rows[cartasFinal.Rows.Count - 1].ItemArray[0].ToString();
                     label34.Text = "EDITANDO CARTA DE PORTE";
                 }
                 else

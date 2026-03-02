@@ -128,6 +128,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox25 = new System.Windows.Forms.RichTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -995,6 +997,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.richTextBox25);
             this.groupBox3.Controls.Add(this.richTextBox15);
             this.groupBox3.Controls.Add(this.label5);
             this.groupBox3.Controls.Add(this.richTextBox5);
@@ -1283,6 +1287,26 @@
             this.richTextBox1.Text = "PO-EC-0007-20";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1025, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 26);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "8. Certificados de \r\n    Habilitación No.";
+            // 
+            // richTextBox25
+            // 
+            this.richTextBox25.Location = new System.Drawing.Point(1121, 17);
+            this.richTextBox25.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox25.MaxLength = 45;
+            this.richTextBox25.Name = "richTextBox25";
+            this.richTextBox25.Size = new System.Drawing.Size(139, 40);
+            this.richTextBox25.TabIndex = 122;
+            this.richTextBox25.Text = "";
+            // 
             // Documento2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1425,5 +1449,7 @@
         public System.Windows.Forms.NumericUpDown numericUpDown1;
         public System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label34;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.RichTextBox richTextBox25;
     }
 }
