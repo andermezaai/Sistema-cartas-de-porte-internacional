@@ -284,6 +284,7 @@
                           <TextRun>
                             <Value>=First(Fields!CodigoManifiesto.Value, "DataSet1")</Value>
                             <Style>
+                              <FontSize>12pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                               <Color>Red</Color>
                             </Style>
@@ -293,9 +294,9 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox75</rd:DefaultName>
-                    <Top>0.5377cm</Top>
+                    <Top>0.46715cm</Top>
                     <Left>15.28513cm</Left>
-                    <Height>0.48577cm</Height>
+                    <Height>0.55633cm</Height>
                     <Width>2.5cm</Width>
                     <Style>
                       <Border>
@@ -2874,7 +2875,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Neto</Value>
+                            <Value>Bruto</Value>
                             <Style>
                               <FontSize>7pt</FontSize>
                               <Color>Blue</Color>
@@ -2914,7 +2915,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Bruto</Value>
+                            <Value>Neto</Value>
                             <Style>
                               <FontSize>7pt</FontSize>
                               <Color>Blue</Color>
@@ -3377,9 +3378,9 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox5</rd:DefaultName>
-                    <Top>0.72348cm</Top>
+                    <Top>0.40598cm</Top>
                     <Left>0.01764cm</Left>
-                    <Height>1.01465cm</Height>
+                    <Height>1.36158cm</Height>
                     <Width>5.00002cm</Width>
                     <ZIndex>1</ZIndex>
                     <Style>
@@ -3968,7 +3969,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=First(Fields!PesoNeto.Value, "DataSet1")</Value>
+                            <Value>=First(Fields!PesoBruto.Value, "DataSet1")</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -4003,7 +4004,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=First(Fields!PesoBruto.Value, "DataSet1")</Value>
+                            <Value>=First(Fields!PesoNeto.Value, "DataSet1")</Value>
                             <Style>
                               <FontSize>9pt</FontSize>
                               <FontWeight>Bold</FontWeight>
@@ -4254,8 +4255,8 @@
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox5</rd:DefaultName>
-                    <Top>0.72348cm</Top>
-                    <Height>0.97937cm</Height>
+                    <Top>0.40598cm</Top>
+                    <Height>1.36158cm</Height>
                     <Width>5.00002cm</Width>
                     <Style>
                       <Border>

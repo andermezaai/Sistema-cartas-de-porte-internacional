@@ -104,6 +104,8 @@
             this.label9 = new System.Windows.Forms.Label();
             this.richTextBox9 = new System.Windows.Forms.RichTextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.richTextBox25 = new System.Windows.Forms.RichTextBox();
             this.richTextBox15 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox5 = new System.Windows.Forms.RichTextBox();
@@ -128,8 +130,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox25 = new System.Windows.Forms.RichTextBox();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -468,7 +468,7 @@
             // 
             this.richTextBox37.Location = new System.Drawing.Point(679, 176);
             this.richTextBox37.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox37.MaxLength = 45;
+            this.richTextBox37.MaxLength = 80;
             this.richTextBox37.Name = "richTextBox37";
             this.richTextBox37.Size = new System.Drawing.Size(139, 40);
             this.richTextBox37.TabIndex = 213;
@@ -488,7 +488,7 @@
             // 
             this.richTextBox38.Location = new System.Drawing.Point(406, 176);
             this.richTextBox38.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox38.MaxLength = 45;
+            this.richTextBox38.MaxLength = 80;
             this.richTextBox38.Name = "richTextBox38";
             this.richTextBox38.Size = new System.Drawing.Size(139, 40);
             this.richTextBox38.TabIndex = 211;
@@ -703,7 +703,7 @@
             // 
             this.richTextBox26.Location = new System.Drawing.Point(406, 20);
             this.richTextBox26.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox26.MaxLength = 20;
+            this.richTextBox26.MaxLength = 50;
             this.richTextBox26.Name = "richTextBox26";
             this.richTextBox26.Size = new System.Drawing.Size(139, 40);
             this.richTextBox26.TabIndex = 190;
@@ -1017,6 +1017,26 @@
             this.groupBox3.Text = "IDENTIFICACION DE LA UNIDAD DE CARGA";
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(1025, 19);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(94, 26);
+            this.label1.TabIndex = 121;
+            this.label1.Text = "8. Certificados de \r\n    Habilitación No.";
+            // 
+            // richTextBox25
+            // 
+            this.richTextBox25.Location = new System.Drawing.Point(1121, 17);
+            this.richTextBox25.Margin = new System.Windows.Forms.Padding(2);
+            this.richTextBox25.MaxLength = 45;
+            this.richTextBox25.Name = "richTextBox25";
+            this.richTextBox25.Size = new System.Drawing.Size(139, 40);
+            this.richTextBox25.TabIndex = 122;
+            this.richTextBox25.Text = "";
+            // 
             // richTextBox15
             // 
             this.richTextBox15.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
@@ -1286,26 +1306,6 @@
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "PO-EC-0007-20";
             this.richTextBox1.TextChanged += new System.EventHandler(this.richTextBox1_TextChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(1025, 19);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(94, 26);
-            this.label1.TabIndex = 121;
-            this.label1.Text = "8. Certificados de \r\n    Habilitación No.";
-            // 
-            // richTextBox25
-            // 
-            this.richTextBox25.Location = new System.Drawing.Point(1121, 17);
-            this.richTextBox25.Margin = new System.Windows.Forms.Padding(2);
-            this.richTextBox25.MaxLength = 45;
-            this.richTextBox25.Name = "richTextBox25";
-            this.richTextBox25.Size = new System.Drawing.Size(139, 40);
-            this.richTextBox25.TabIndex = 122;
-            this.richTextBox25.Text = "";
             // 
             // Documento2
             // 

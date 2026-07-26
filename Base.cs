@@ -128,7 +128,7 @@ namespace Documentos
                 "id_manifiesto int not null constraint FK_manfiestos2 references manifiestos_de_carga (llave)," +
                 "id_carta_porte int not null constraint FK_cartaporte references cartas_final (llave)," +
                 "c23 char(20)," +
-                "c24 char(20)," +
+                "c24 char(50)," +
                 "c25 char(45)," +
                 "c26 char(45)," +
                 "c27 char(125)," +
@@ -140,8 +140,8 @@ namespace Documentos
                 "c32_2 char(180)," +
                 "c33 char(180)," +
                 "c34 char(45)," +
-                "c37 char(45)," +
-                "c38 char(45)," +
+                "c37 char(80)," +
+                "c38 char(80)," +
                 "c40 char(45))";
 
 

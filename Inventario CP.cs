@@ -65,6 +65,11 @@ namespace Documentos
 
         }
 
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
         string numero_final_para_enviar_al_manifiesto = "";
 
 
@@ -279,8 +284,8 @@ namespace Documentos
             }
             else if(comboBox1.Text=="PE")
             {
-                aduanaCruce = "HUAQUILLAS    ECUADOR";
-                aduanaDestino = "AGUASU    PERU";
+                aduanaCruce = "AGUAS VERDES    PERU\nHUAQUILLAS    ECUADOR\nTULCAN     ECUADOR";
+                aduanaDestino = "IPIALES    COLOMBIA";
             }
 
             List<string> sobrepasa = new List<string>();
@@ -318,14 +323,14 @@ namespace Documentos
             if (seAcepta(actual.richTextBox20, this.richTextBox7.Text.Split('\n')[0]))
                 actual.richTextBox20.Text = this.richTextBox7.Text.Split('\n')[0];
             else
-                sobrepasa.Add("[10]");
+                sobrepasa.Add("[10] cantidad bultos");
             
             try
             {
                 if (seAcepta(actual.richTextBox19, this.richTextBox7.Text.Split('\n')[1]))
                     actual.richTextBox19.Text = this.richTextBox7.Text.Split('\n')[1];
                 else
-                    sobrepasa.Add("[10]");
+                    sobrepasa.Add("[10] clase bultos");
                 
             }
             catch (Exception e)
@@ -376,7 +381,7 @@ namespace Documentos
                 {
                     textmani += sobrepasa[i];
                 }
-                respuesta = MessageBox.Show("Los siguientes campos son muy grandes para los campos del manifiesto:"+textmani+"\n ¿Desea continuar sin cargar estos campos?", "Abrir Nuevo Manifiesto ", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                respuesta = MessageBox.Show("Los siguientes campos son muy grandes para los campos del manifiesto:"+textmani+"\n ¿Desea continuar sin cargar estos campos en el nuevo manifiesto?", "Abrir Nuevo Manifiesto ", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
                 if (respuesta.ToString() == "Yes")
                 {
                     Form1 principal = Application.OpenForms.OfType<Form1>().SingleOrDefault();
@@ -793,34 +798,50 @@ namespace Documentos
                     numeroPE = Convert.ToString(Convert.ToInt32(nueva.Consulta(busquedaPE).Rows[nueva.Consulta(busquedaPE).Rows.Count - 1].ItemArray[0]) + 1);
                 }
 
-
-                if (!string.IsNullOrEmpty(richTextBox1.Text) && !string.IsNullOrEmpty(richTextBox2.Text) && (comboBox1.Text == "EC" || comboBox1.Text == "CO" || comboBox1.Text == "PE"))
+            if (!string.IsNullOrEmpty(richTextBox1.Text) && !string.IsNullOrEmpty(richTextBox2.Text) && (comboBox1.Text == "EC" || comboBox1.Text == "CO" || comboBox1.Text == "PE"))
+            {
+                try
                 {
-                    if (!nueva.Dato_en_consulta(c2.Trim(), "Select c2yc3 from Organizaciones_y_direcciones"))
+                    // 1. Manejo seguro de Emisor (c2)
+                    string c2Limpio = c2.Trim().Replace("\r\n", "\n") // Normaliza saltos de línea de Windows
+                                               .Replace("\r", "\n")   // Normaliza saltos de línea de Mac/Unix
+                                               .Replace("'", "''"); // Limpiamos comillas simples para evitar errores de sintaxis
+                    if (!nueva.Dato_en_consulta(c2Limpio, "Select c2yc3 from Organizaciones_y_direcciones"))
                     {
-                        string comando1 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) " +
-                        "VALUES('" + c2.Trim() + "')";
+                        string comando1 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) VALUES('" + c2Limpio + "')";
                         nueva.comando(comando1);
                     }
-                    string codigo_emisor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta(@"SELECT Organizaciones_y_direcciones.id_organizacion FROM Organizaciones_y_direcciones WHERE  [c2yc3] = '" + c2.Trim().ToString().Replace('\n', (char)10) + "'").Rows[0].ItemArray[0]));
 
-                    if (!nueva.Dato_en_consulta(c3.Trim(), "Select c2yc3 from Organizaciones_y_direcciones"))
+                    DataTable dtEmisor = nueva.Consulta(@"SELECT id_organizacion FROM Organizaciones_y_direcciones WHERE [c2yc3] = '" + c2Limpio + "' ORDER BY id_organizacion DESC");
+                    if (dtEmisor.Rows.Count == 0)
                     {
-                        string comando2 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) " +
-                        "VALUES('" + c3.Trim() + "')";
+                        MessageBox.Show("No se pudo obtener el código del emisor. Verifique el texto del campo 2.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    string codigo_emisor = nueva.Quitar_espacios(dtEmisor.Rows[0][0].ToString());
+
+                    // 2. Manejo seguro de Receptor (c3)
+                    string c3Limpio = c3.Trim().Replace("\r\n", "\n") // Normaliza saltos de línea de Windows
+                                               .Replace("\r", "\n")   // Normaliza saltos de línea de Mac/Unix
+                                               .Replace("'", "''");
+                    if (!nueva.Dato_en_consulta(c3Limpio, "Select c2yc3 from Organizaciones_y_direcciones"))
+                    {
+                        string comando2 = "INSERT INTO Organizaciones_y_direcciones(c2yc3) VALUES('" + c3Limpio + "')";
                         nueva.comando(comando2);
                     }
-                    string codigo_receptor = nueva.Quitar_espacios(Convert.ToString(nueva.Consulta(@"SELECT Organizaciones_y_direcciones.id_organizacion FROM Organizaciones_y_direcciones WHERE  [c2yc3] = '" + c3.Trim().ToString().Replace('\n', (char)10) + "'").Rows[0].ItemArray[0]));
 
+                    DataTable dtReceptor = nueva.Consulta(@"SELECT id_organizacion FROM Organizaciones_y_direcciones WHERE [c2yc3] = '" + c3Limpio + "' ORDER BY id_organizacion DESC");
+                    if (dtReceptor.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No se pudo obtener el código del receptor. Verifique el texto del campo 3.", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+                    string codigo_receptor = nueva.Quitar_espacios(dtReceptor.Rows[0][0].ToString());
+
+                    // 3. Proceso de Guardado / Edición
                     if (id == "-1")
                     {
-                        string numero = "";
-                        if (comboBox1.Text == "EC")
-                            numero = numeroEC;
-                        else if (comboBox1.Text == "CO")
-                            numero = numeroCOL;
-                        else
-                            numero = numeroPE;
+                        string numero = (comboBox1.Text == "EC") ? numeroEC : (comboBox1.Text == "CO") ? numeroCOL : numeroPE;
 
                         string comando3 = "INSERT INTO cartas_de_porte (fecha_creacion,fecha_modificacion,codigo_pais,numero_cartaporte,c4,c5,c6,c7,c8,c9,c10,c11,c12) " +
                         "VALUES(NOW(), NOW(), '" + comboBox1.Text + "', '" + numero + "', '" + c4 + "', '" + c5 + "', '" +
@@ -831,86 +852,119 @@ namespace Documentos
                     else
                     {
                         string codigo_pais = comboBox1.Text;
-                        string numero = "";
-                        if (comboBox1.Text == "EC")
-                            numero = numeroEC;
-                        else if (comboBox1.Text == "CO")
-                            numero = numeroCOL;
-                        else
-                            numero = numeroPE;
+                        string numero = (comboBox1.Text == "EC") ? numeroEC : (comboBox1.Text == "CO") ? numeroCOL : numeroPE;
 
-                        DataTable codigopais = nueva.Consulta("Select cartas_de_porte.codigo_pais from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id + "");
-                        if (nueva.Quitar_espacios(Convert.ToString(codigopais.Rows[0].ItemArray[0])) == comboBox1.Text)
+                        DataTable codigopais = nueva.Consulta("Select cartas_de_porte.codigo_pais from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id);
+
+                        // Validamos que exista la relación antes de leer
+                        if (codigopais.Rows.Count > 0 && nueva.Quitar_espacios(codigopais.Rows[0][0].ToString()) == comboBox1.Text)
                         {
-                            DataTable numero_cartaporte = nueva.Consulta("Select cartas_de_porte.numero_cartaporte from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id + "");
-                            numero = nueva.Quitar_espacios(Convert.ToString(numero_cartaporte.Rows[0].ItemArray[0]));
-                            codigo_pais = nueva.Quitar_espacios(Convert.ToString(codigopais.Rows[0].ItemArray[0]));
+                            DataTable numero_cartaporte = nueva.Consulta("Select cartas_de_porte.numero_cartaporte from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id);
+                            if (numero_cartaporte.Rows.Count > 0)
+                            {
+                                numero = nueva.Quitar_espacios(numero_cartaporte.Rows[0][0].ToString());
+                                codigo_pais = nueva.Quitar_espacios(codigopais.Rows[0][0].ToString());
+                            }
                         }
 
                         DataTable id_cartaporte = nueva.Consulta("Select cartas_de_porte.llave from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id);
+                        if (id_cartaporte.Rows.Count == 0)
+                        {
+                            MessageBox.Show("No se encontró la carta de porte asociada a este registro.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
                         string comando = "UPDATE cartas_de_porte SET fecha_modificacion=NOW(),codigo_pais='" + codigo_pais + "',numero_cartaporte='" + numero + "',c4='" + c4 + "',c5='" + c5 + "',c6='" + c6 + "',c7='" + c7 + "',C8='" + c8 + "',c9='" + c9 + "" +
-                            "',c10='" + c10 + "',c11='" + c11 + "',c12='" + c12 + "' WHERE llave=" + nueva.Quitar_espacios(Convert.ToString(id_cartaporte.Rows[0].ItemArray[0])) + "";
+                            "',c10='" + c10 + "',c11='" + c11 + "',c12='" + c12 + "' WHERE llave=" + nueva.Quitar_espacios(id_cartaporte.Rows[0][0].ToString()) + "";
                         nueva.comando(comando);
 
                         numero_final_para_enviar_al_manifiesto = numero;
                     }
+
                     DataTable cartas = nueva.Consulta("Select llave from cartas_de_porte");
+                    if (cartas.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No existen cartas de porte registradas en el sistema.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    string ultimaCartaLlave = nueva.Quitar_espacios(cartas.Rows[cartas.Rows.Count - 1][0].ToString());
 
                     if (id == "-1")
                     {
-
-                        string comando4 = "INSERT INTO Organizaciones_en_cartaportes " +
-                            "VALUES('" + nueva.Quitar_espacios(Convert.ToString(cartas.Rows[cartas.Rows.Count - 1].ItemArray[0])) + "','" + codigo_emisor + "','EMISOR')";
+                        string comando4 = "INSERT INTO Organizaciones_en_cartaportes VALUES('" + ultimaCartaLlave + "','" + codigo_emisor + "','EMISOR')";
                         nueva.comando(comando4);
 
-                        string comando5 = "INSERT INTO Organizaciones_en_cartaportes " +
-                       "VALUES('" + nueva.Quitar_espacios(Convert.ToString(cartas.Rows[cartas.Rows.Count - 1].ItemArray[0])) + "','" + codigo_receptor + "','RECEPTOR')";
+                        string comando5 = "INSERT INTO Organizaciones_en_cartaportes VALUES('" + ultimaCartaLlave + "','" + codigo_receptor + "','RECEPTOR')";
                         nueva.comando(comando5);
 
-                    }
-                    else
-                    {
-                        DataTable id_cartaporte = nueva.Consulta("Select cartas_de_porte.llave from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave  where cartas_final.llave = " + id);
-                        string comando4 = "UPDATE Organizaciones_en_cartaportes SET id_organizacion='" + codigo_emisor + "' Where id_carta =" + id_cartaporte.Rows[0].ItemArray[0] + " and" +
-                            " papel_organizacion='EMISOR'";
-                        nueva.comando(comando4);
-
-                        string comando5 = "UPDATE Organizaciones_en_cartaportes SET id_organizacion='" + codigo_receptor + "' Where id_carta =" + id_cartaporte.Rows[0].ItemArray[0] + " and" +
-                            " papel_organizacion='RECEPTOR'";
-                        nueva.comando(comando5);
-                    }
-
-                    if (id == "-1")
-                    {
                         string comando6 = "INSERT INTO cartas_final (id_carta, c13_1,c13_2,c14,c15,c16,c17_1,c17_2,c17_3,c17_4,c17_5,c17_6,c17_7,c17_8,c17_9,c17_10,c17_11,c17_12,c18,c19,c21,c22,dian) " +
-                        " VALUES('" + cartas.Rows[cartas.Rows.Count - 1].ItemArray[0] + "','" + c13_1 + "','" + c13_2 + "','" +
+                        " VALUES('" + ultimaCartaLlave + "','" + c13_1 + "','" + c13_2 + "','" +
                         c14 + "','" + c15 + "','" + c16 + "','" + c17_1 + "','" + c17_2 + "','" + c17_3 + "','" + c17_4 + "','" + c17_5 + "','" + c17_6 + "','" +
                         c17_7 + "','" + c17_8 + "','" + c17_9 + "','" + c17_10 + "','" + c17_11 + "','" + c17_12 + "','" + c18 + "','" + c19 + "','" + c21 + "','" + c22 + "','" + dian + "')";
                         nueva.comando(comando6);
 
                         DataTable cartasFinal = nueva.Consulta("Select llave from cartas_final");
-                        id = cartasFinal.Rows[cartasFinal.Rows.Count - 1].ItemArray[0].ToString();
+                        if (cartasFinal.Rows.Count > 0)
+                        {
+                            id = cartasFinal.Rows[cartasFinal.Rows.Count - 1][0].ToString();
+                        }
                         label34.Text = "EDITANDO CARTA DE PORTE";
                     }
                     else
                     {
+                        DataTable id_cartaporte = nueva.Consulta("Select cartas_de_porte.llave from cartas_final inner join cartas_de_porte on cartas_final.llave=cartas_de_porte.llave where cartas_final.llave = " + id);
+                        if (id_cartaporte.Rows.Count > 0)
+                        {
+                            string idCartaVal = id_cartaporte.Rows[0][0].ToString();
+                            string comando4 = "UPDATE Organizaciones_en_cartaportes SET id_organizacion='" + codigo_emisor + "' Where id_carta =" + idCartaVal + " and papel_organizacion='EMISOR'";
+                            nueva.comando(comando4);
+
+                            string comando5 = "UPDATE Organizaciones_en_cartaportes SET id_organizacion='" + codigo_receptor + "' Where id_carta =" + idCartaVal + " and papel_organizacion='RECEPTOR'";
+                            nueva.comando(comando5);
+                        }
+
                         string comando6 = "UPDATE cartas_final SET c13_1='" + c13_1 + "',dian='" + dian + "',c13_2='" + c13_2 + "',c14='" + c14 + "'," +
                             "c15='" + c15 + "',c16='" + c16 + "',c17_1='" + c17_1 + "',c17_2='" + c17_2 + "',c17_3='" + c17_3 + "',c17_4='" + c17_4 + "'," +
                             "c17_5='" + c17_5 + "',c17_6='" + c17_6 + "',c17_7='" + c17_7 + "',c17_8='" + c17_8 + "',c17_9='" + c17_9 + "',c17_10='" + c17_10 + "'" +
                             ",c17_11='" + c17_11 + "',c17_12='" + c17_12 + "',c18='" + c18 + "',c19='" + c19 + "',c21='" + c21 + "',c22='" + c22 + "'" +
                             "WHERE llave=" + id;
                         nueva.comando(comando6);
-
                     }
+
                     MessageBox.Show("Se ha guardado exitosamente");
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("No puede dejar el campo 2 y 3 vacíos, además se tiene que ingresar el código del país ", "Advertencia Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    // Obtener la información detallada de la pila de llamadas
+                    var stackTrace = new System.Diagnostics.StackTrace(ex, true);
+                    var frame = stackTrace.GetFrame(0); // Captura el punto donde se lanzó el error
+
+                    int linea = 0;
+                    string archivo = "Desconocido";
+
+                    if (frame != null)
+                    {
+                        linea = frame.GetFileLineNumber();
+                        archivo = System.IO.Path.GetFileName(frame.GetFileName() ?? "Archivo no disponible");
+                    }
+
+                    string mensajeDetallado = $"Ocurrió un error en el sistema:\n\n" +
+                                             $"• Mensaje: {ex.Message}\n" +
+                                             $"• Archivo: {archivo}\n" +
+                                             $"• Línea: {linea}\n\n" +
+                                             $"Detalle técnico:\n{ex.StackTrace}";
+
+                    MessageBox.Show(mensajeDetallado, "Error en Ejecución", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+            else
+            {
+                MessageBox.Show("No puede dejar el campo 2 y 3 vacíos, además se tiene que ingresar el código del país ", "Advertencia Ingreso de datos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
 
-            
+
         }
     }
 }
