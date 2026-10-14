@@ -4019,7 +4019,7 @@
                     <rd:DefaultName>Textbox17</rd:DefaultName>
                     <Top>0.01389in</Top>
                     <Left>2.03528cm</Left>
-                    <Height>2.06439in</Height>
+                    <Height>2.10605in</Height>
                     <Width>1.96469cm</Width>
                     <ZIndex>1</ZIndex>
                     <Style>
@@ -4051,7 +4051,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=First(Fields!PesoNeto.Value, "DataSet1")</Value>
+                        <Value>=First(Fields!PesoBruto.Value, "DataSet1")</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -4085,7 +4085,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=First(Fields!PesoBruto.Value, "DataSet1")</Value>
+                        <Value>=First(Fields!PesoNeto.Value, "DataSet1")</Value>
                         <Style>
                           <FontSize>9pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -4337,7 +4337,7 @@
                 <rd:DefaultName>Textbox17</rd:DefaultName>
                 <Top>6.81152in</Top>
                 <Left>18.21367cm</Left>
-                <Height>2.06439in</Height>
+                <Height>2.11994in</Height>
                 <Width>1.7863cm</Width>
                 <ZIndex>45</ZIndex>
                 <Style>
