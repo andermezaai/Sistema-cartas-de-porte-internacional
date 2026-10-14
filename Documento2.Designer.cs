@@ -646,7 +646,6 @@
             this.richTextBox23.Size = new System.Drawing.Size(139, 40);
             this.richTextBox23.TabIndex = 196;
             this.richTextBox23.Text = "";
-            this.richTextBox23.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.richTextBox23_KeyPress);
             // 
             // richTextBox24
             // 
