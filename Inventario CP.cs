@@ -138,7 +138,7 @@ namespace Documentos
             string pais = comboBox1.Text;
             
             datos.numero = richTextBox33.Text+"\nCEC"+richTextBox34.Text;
-            datos.codigo = "000"+numero + " "+comboBox1.Text;
+            datos.codigo = numero.PadLeft(6,'0') + " "+comboBox1.Text;
             datos.nomDirRemitente = richTextBox1.Text;
             datos.nomDirDestinatario= richTextBox2.Text;
             datos.nomDirConsignatario = richTextBox3.Text;
